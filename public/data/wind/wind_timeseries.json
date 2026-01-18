@@ -1,0 +1,230 @@
+{
+  "chart": {
+    "confidence_level": 0.8,
+    "interval_minutes": 60,
+    "lead_hours": 3,
+    "series_keys": [
+      "forecast",
+      "actual",
+      "upper",
+      "lower"
+    ],
+    "title": "Forecast vs Actual"
+  },
+  "demo_forecast_metadata": {
+    "deterministic": true,
+    "label": "DEMO forecast (shift + seeded noise)",
+    "method": "forecast(t) = actual(t - lead_hours) + Normal(0, sigma)",
+    "notes": "This is a demo stand-in for forecast-vs-actual wiring. Replace with real forecast later.",
+    "seed": 42
+  },
+  "product_id": "wind-forecasting",
+  "series": [
+    {
+      "actual": 80.31,
+      "forecast": 16.42,
+      "lower": 0.0,
+      "name": "01:00",
+      "ts_utc": "2024-10-19T01:00:00Z",
+      "upper": 93.97
+    },
+    {
+      "actual": 82.52,
+      "forecast": 56.12,
+      "lower": 0.0,
+      "name": "02:00",
+      "ts_utc": "2024-10-19T02:00:00Z",
+      "upper": 133.67
+    },
+    {
+      "actual": 191.95,
+      "forecast": 140.58,
+      "lower": 63.03,
+      "name": "03:00",
+      "ts_utc": "2024-10-19T03:00:00Z",
+      "upper": 218.12
+    },
+    {
+      "actual": 532.2,
+      "forecast": 205.04,
+      "lower": 127.5,
+      "name": "04:00",
+      "ts_utc": "2024-10-19T04:00:00Z",
+      "upper": 282.59
+    },
+    {
+      "actual": 454.64,
+      "forecast": 195.82,
+      "lower": 118.28,
+      "name": "05:00",
+      "ts_utc": "2024-10-19T05:00:00Z",
+      "upper": 273.36
+    },
+    {
+      "actual": 424.23,
+      "forecast": 287.88,
+      "lower": 210.34,
+      "name": "06:00",
+      "ts_utc": "2024-10-19T06:00:00Z",
+      "upper": 365.43
+    },
+    {
+      "actual": 472.81,
+      "forecast": 520.31,
+      "lower": 442.77,
+      "name": "07:00",
+      "ts_utc": "2024-10-19T07:00:00Z",
+      "upper": 597.86
+    },
+    {
+      "actual": 635.14,
+      "forecast": 516.61,
+      "lower": 439.07,
+      "name": "08:00",
+      "ts_utc": "2024-10-19T08:00:00Z",
+      "upper": 594.15
+    },
+    {
+      "actual": 736.42,
+      "forecast": 510.54,
+      "lower": 432.99,
+      "name": "09:00",
+      "ts_utc": "2024-10-19T09:00:00Z",
+      "upper": 588.08
+    },
+    {
+      "actual": 513.48,
+      "forecast": 497.7,
+      "lower": 420.16,
+      "name": "10:00",
+      "ts_utc": "2024-10-19T10:00:00Z",
+      "upper": 575.25
+    },
+    {
+      "actual": 1103.98,
+      "forecast": 809.75,
+      "lower": 732.21,
+      "name": "11:00",
+      "ts_utc": "2024-10-19T11:00:00Z",
+      "upper": 887.3
+    },
+    {
+      "actual": 1500.0,
+      "forecast": 905.9,
+      "lower": 828.36,
+      "name": "12:00",
+      "ts_utc": "2024-10-19T12:00:00Z",
+      "upper": 983.45
+    },
+    {
+      "actual": 1500.0,
+      "forecast": 700.07,
+      "lower": 611.26,
+      "name": "13:00",
+      "ts_utc": "2024-10-19T13:00:00Z",
+      "upper": 788.87
+    },
+    {
+      "actual": 1500.0,
+      "forecast": 1288.24,
+      "lower": 1189.66,
+      "name": "14:00",
+      "ts_utc": "2024-10-19T14:00:00Z",
+      "upper": 1386.82
+    },
+    {
+      "actual": 1500.0,
+      "forecast": 1495.44,
+      "lower": 1389.57,
+      "name": "15:00",
+      "ts_utc": "2024-10-19T15:00:00Z",
+      "upper": 1500.0
+    },
+    {
+      "actual": 1500.0,
+      "forecast": 1461.55,
+      "lower": 1350.22,
+      "name": "16:00",
+      "ts_utc": "2024-10-19T16:00:00Z",
+      "upper": 1500.0
+    },
+    {
+      "actual": 1360.63,
+      "forecast": 1499.44,
+      "lower": 1385.87,
+      "name": "17:00",
+      "ts_utc": "2024-10-19T17:00:00Z",
+      "upper": 1500.0
+    },
+    {
+      "actual": 1182.19,
+      "forecast": 1396.42,
+      "lower": 1283.3,
+      "name": "18:00",
+      "ts_utc": "2024-10-19T18:00:00Z",
+      "upper": 1500.0
+    },
+    {
+      "actual": 931.93,
+      "forecast": 1393.87,
+      "lower": 1283.39,
+      "name": "19:00",
+      "ts_utc": "2024-10-19T19:00:00Z",
+      "upper": 1500.0
+    },
+    {
+      "actual": 808.46,
+      "forecast": 1136.58,
+      "lower": 1029.61,
+      "name": "20:00",
+      "ts_utc": "2024-10-19T20:00:00Z",
+      "upper": 1243.54
+    },
+    {
+      "actual": 664.81,
+      "forecast": 1026.86,
+      "lower": 923.93,
+      "name": "21:00",
+      "ts_utc": "2024-10-19T21:00:00Z",
+      "upper": 1129.78
+    },
+    {
+      "actual": 234.85,
+      "forecast": 731.55,
+      "lower": 630.96,
+      "name": "22:00",
+      "ts_utc": "2024-10-19T22:00:00Z",
+      "upper": 832.14
+    },
+    {
+      "actual": 292.53,
+      "forecast": 653.07,
+      "lower": 554.82,
+      "name": "23:00",
+      "ts_utc": "2024-10-19T23:00:00Z",
+      "upper": 751.32
+    },
+    {
+      "actual": 363.97,
+      "forecast": 569.58,
+      "lower": 473.51,
+      "name": "00:00",
+      "ts_utc": "2024-10-20T00:00:00Z",
+      "upper": 665.65
+    },
+    {
+      "actual": 382.75,
+      "forecast": 212.03,
+      "lower": 118.77,
+      "name": "01:00",
+      "ts_utc": "2024-10-20T01:00:00Z",
+      "upper": 305.28
+    }
+  ],
+  "site": {
+    "name": "Ishikari Bay Offshore (Demo)",
+    "nameplate_mw": 1500.0,
+    "region": "JP-Hokkaido",
+    "timezone": "UTC"
+  }
+}

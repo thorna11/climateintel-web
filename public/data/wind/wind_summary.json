@@ -1,0 +1,84 @@
+{
+  "data_vintage_utc": {
+    "end": "2024-12-31T23:00:00Z",
+    "start": "2024-01-01T00:00:00Z"
+  },
+  "demo_forecast_metadata": {
+    "deterministic": true,
+    "label": "DEMO forecast (shift + seeded noise)",
+    "method": "forecast(t) = actual(t - lead_hours) + Normal(0, sigma)",
+    "notes": "This is a demo stand-in for forecast-vs-actual wiring. Replace with real forecast later.",
+    "seed": 42
+  },
+  "forecast_horizon": {
+    "display": "14 days",
+    "hours": 336
+  },
+  "generated_at_utc": "2026-01-14T01:14:27Z",
+  "kpis": [
+    {
+      "id": "accuracy",
+      "subtitle": "RMSE 178 MW · demo",
+      "title": "Accuracy (Day-ahead)",
+      "trend": "neutral",
+      "value": "11.8%"
+    },
+    {
+      "id": "update_freq",
+      "subtitle": "Deterministic export",
+      "title": "Update Frequency",
+      "trend": "neutral",
+      "value": "15 min"
+    },
+    {
+      "id": "horizon",
+      "subtitle": "Hour-by-hour (demo)",
+      "title": "Forecast Horizon",
+      "trend": "neutral",
+      "value": "14 days"
+    }
+  ],
+  "narrative": "This demo dashboard exports wind power risk drivers (ramps, direction shifts, volatility) and a forecast-vs-actual view with confidence bands. Forecast values are demo-generated (deterministic) to prove website wiring and a verification workflow.",
+  "product_id": "wind-forecasting",
+  "risk_outlook": {
+    "max_dirshift_3h_deg": 70.0,
+    "max_ramp_3h_ms": 3.0,
+    "max_swing_3h_mw": 191.0,
+    "max_vol_6h_ms": 1.42,
+    "notes": "rated_share can be 0.0 in low-wind regimes; it reflects time spent near nameplate output.",
+    "ramp_share": 0.083,
+    "rated_share": 0.0,
+    "verdict": "GREEN: STEADY FLOW (lower volatility risk)",
+    "window_end": "2024-12-31T23:00:00Z",
+    "window_start": "2024-12-28T23:00:00Z"
+  },
+  "site": {
+    "name": "Ishikari Bay Offshore (Demo)",
+    "nameplate_mw": 1500.0,
+    "region": "JP-Hokkaido",
+    "timezone": "UTC"
+  },
+  "timescales": [
+    {
+      "active": true,
+      "label": "Nowcast",
+      "value": "0-6 hours"
+    },
+    {
+      "active": true,
+      "label": "Day-ahead",
+      "value": "6-48 hours"
+    },
+    {
+      "active": true,
+      "label": "Week-ahead",
+      "value": "2-7 days"
+    },
+    {
+      "active": true,
+      "label": "Long-range",
+      "value": "7-14 days"
+    }
+  ],
+  "update_frequency_minutes": 15
+}

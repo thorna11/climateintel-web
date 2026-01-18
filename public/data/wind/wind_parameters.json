@@ -1,0 +1,47 @@
+{
+  "assumptions": {
+    "demo_forecast": "DEMO forecast (shift + seeded noise)",
+    "power_curve": "Demo curve (cut-in/rated/cut-out with cubic ramp).",
+    "public_safety": "No proprietary assets; deterministic and demo-safe outputs.",
+    "thresholds": "Percentile-based thresholds from historical baseline."
+  },
+  "parameters": [
+    {
+      "available": true,
+      "description": "Derived from u10/v10.",
+      "name": "Wind Speed",
+      "unit": "m/s"
+    },
+    {
+      "available": true,
+      "description": "Meteorological direction from u10/v10.",
+      "name": "Wind Direction",
+      "unit": "deg"
+    },
+    {
+      "available": true,
+      "description": "Demo power curve scaled to nameplate.",
+      "name": "Power Output",
+      "unit": "MW"
+    },
+    {
+      "available": false,
+      "description": "Not computed in current demo notebook.",
+      "name": "Gust Factor",
+      "unit": "m/s"
+    },
+    {
+      "available": false,
+      "description": "Not computed in current demo notebook.",
+      "name": "Air Density",
+      "unit": "kg/m³"
+    }
+  ],
+  "product_id": "wind-forecasting",
+  "site": {
+    "name": "Ishikari Bay Offshore (Demo)",
+    "nameplate_mw": 1500.0,
+    "region": "JP-Hokkaido",
+    "timezone": "UTC"
+  }
+}

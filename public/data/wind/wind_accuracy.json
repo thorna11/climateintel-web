@@ -1,0 +1,169 @@
+{
+  "by_lead": [
+    {
+      "bias_mw": 0.5,
+      "lead_h": 1,
+      "mae_mw": 12.3,
+      "n": 8784,
+      "nrmse_pct": 2.39,
+      "rmse_mw": 35.79,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 0.41,
+      "lead_h": 3,
+      "mae_mw": 21.91,
+      "n": 8784,
+      "nrmse_pct": 4.03,
+      "rmse_mw": 60.51,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 0.97,
+      "lead_h": 6,
+      "mae_mw": 35.58,
+      "n": 8784,
+      "nrmse_pct": 6.64,
+      "rmse_mw": 99.54,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 5.12,
+      "lead_h": 12,
+      "mae_mw": 53.7,
+      "n": 8784,
+      "nrmse_pct": 9.75,
+      "rmse_mw": 146.26,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 13.08,
+      "lead_h": 24,
+      "mae_mw": 71.91,
+      "n": 8784,
+      "nrmse_pct": 12.23,
+      "rmse_mw": 183.46,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 20.31,
+      "lead_h": 48,
+      "mae_mw": 83.57,
+      "n": 8784,
+      "nrmse_pct": 13.55,
+      "rmse_mw": 203.25,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 23.57,
+      "lead_h": 72,
+      "mae_mw": 87.19,
+      "n": 8784,
+      "nrmse_pct": 13.87,
+      "rmse_mw": 208.0,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 25.87,
+      "lead_h": 120,
+      "mae_mw": 87.87,
+      "n": 8784,
+      "nrmse_pct": 13.74,
+      "rmse_mw": 206.1,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 30.05,
+      "lead_h": 168,
+      "mae_mw": 88.68,
+      "n": 8784,
+      "nrmse_pct": 13.01,
+      "rmse_mw": 195.13,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 29.83,
+      "lead_h": 240,
+      "mae_mw": 90.04,
+      "n": 8784,
+      "nrmse_pct": 13.39,
+      "rmse_mw": 200.89,
+      "source": "DEMO forecast (shift + seeded noise)"
+    },
+    {
+      "bias_mw": 29.59,
+      "lead_h": 336,
+      "mae_mw": 94.26,
+      "n": 8784,
+      "nrmse_pct": 14.14,
+      "rmse_mw": 212.07,
+      "source": "DEMO forecast (shift + seeded noise)"
+    }
+  ],
+  "by_timescale": [
+    {
+      "bias_mw": 0.63,
+      "mae_mw": 23.26,
+      "max_h": 6,
+      "min_h": 0,
+      "n": 26352,
+      "nrmse_pct": 4.35,
+      "rmse_mw": 65.28,
+      "source": "DEMO forecast (shift + seeded noise)",
+      "timescale": "Nowcast"
+    },
+    {
+      "bias_mw": 12.84,
+      "mae_mw": 69.73,
+      "max_h": 48,
+      "min_h": 6,
+      "n": 26352,
+      "nrmse_pct": 11.84,
+      "rmse_mw": 177.66,
+      "source": "DEMO forecast (shift + seeded noise)",
+      "timescale": "Day-ahead"
+    },
+    {
+      "bias_mw": 26.5,
+      "mae_mw": 87.92,
+      "max_h": 168,
+      "min_h": 48,
+      "n": 26352,
+      "nrmse_pct": 13.54,
+      "rmse_mw": 203.08,
+      "source": "DEMO forecast (shift + seeded noise)",
+      "timescale": "Week-ahead"
+    },
+    {
+      "bias_mw": 29.71,
+      "mae_mw": 92.15,
+      "max_h": 336,
+      "min_h": 168,
+      "n": 17568,
+      "nrmse_pct": 13.77,
+      "rmse_mw": 206.48,
+      "source": "DEMO forecast (shift + seeded noise)",
+      "timescale": "Long-range"
+    }
+  ],
+  "demo_forecast_metadata": {
+    "deterministic": true,
+    "label": "DEMO forecast (shift + seeded noise)",
+    "method": "forecast(t) = actual(t - lead_hours) + Normal(0, sigma)",
+    "notes": "This is a demo stand-in for forecast-vs-actual wiring. Replace with real forecast later.",
+    "seed": 42
+  },
+  "evaluation_period_utc": {
+    "end": "2024-12-31T23:00:00Z",
+    "start": "2024-01-01T00:00:00Z"
+  },
+  "interval_minutes": 60,
+  "notes": "NRMSE% computed as RMSE/nameplate for demo clarity.",
+  "product_id": "wind-forecasting",
+  "site": {
+    "name": "Ishikari Bay Offshore (Demo)",
+    "nameplate_mw": 1500.0,
+    "region": "JP-Hokkaido",
+    "timezone": "UTC"
+  }
+}
