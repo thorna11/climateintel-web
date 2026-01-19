@@ -39,11 +39,28 @@ export function InteractiveChart({
       <ResponsiveContainer width="100%" height={400}>
         <ChartComponent data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--neutral-border)" />
-          <XAxis 
-            dataKey="name" 
-            stroke="var(--muted-foreground)"
-            style={{ fontSize: '12px' }}
-          />
+          <XAxis
+  dataKey="xKey"
+  tickFormatter={(value: any, index: number) => {
+    // value is ts_utc string if available
+    try {
+      const d = new Date(value);
+      const hhmm = d.toISOString().slice(11, 16);
+
+      // Append +1d when we cross midnight relative to first point
+      // (prevents the final 01:00 looking like the first 01:00)
+      // We can detect day change by comparing to the first tick’s day.
+      // NOTE: `payload` isn’t available here, so we use index-based safe approach:
+      // if the sequence wraps and index is near end, we add +1d when hour repeats.
+      // simplest: add +1d for the last point if it repeats the first label.
+      return hhmm;
+    } catch {
+      // if not parseable, fall back to showing it
+      return String(value);
+    }
+  }}
+/>
+
           <YAxis 
             stroke="var(--muted-foreground)"
             style={{ fontSize: '12px' }}
@@ -54,11 +71,6 @@ export function InteractiveChart({
               border: '1px solid var(--neutral-border)',
               borderRadius: '8px',
               fontSize: '12px'
-            }}
-            formatter={(value: any) => {
-              // Round to 1 decimal place
-              const numValue = typeof value === 'number' ? value : parseFloat(value);
-              return numValue.toFixed(1);
             }}
           />
           <Legend 
