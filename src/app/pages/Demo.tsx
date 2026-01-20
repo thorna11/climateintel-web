@@ -16,8 +16,11 @@ const generateTimeSeriesData = () => {
   const now = new Date();
   for (let i = 0; i < 48; i++) {
     const time = new Date(now.getTime() + i * 30 * 60000); // 30-min intervals
+    // Format as UTC "Z" time (e.g., 03Z, 14Z, 23Z)
+    const utcHour = time.getUTCHours();
+    const timeLabel = `${utcHour.toString().padStart(2, '0')}Z`;
     data.push({
-      name: time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+      name: timeLabel,
       windPower: 500 + Math.random() * 300 + Math.sin(i / 6) * 200,
       solarPower: Math.max(0, 400 * Math.sin((i / 48) * Math.PI)),
       demand: 800 + Math.random() * 200,
@@ -26,9 +29,9 @@ const generateTimeSeriesData = () => {
   return data;
 };
 
-export function Demo() {
-  const [selectedLocation, setSelectedLocation] = useState('Hong Kong');
-  const [favorites, setFavorites] = useState(['Hong Kong', 'Seoul', 'Singapore', 'Sydney', 'Tokyo']);
+export default function Demo() {
+  const [selectedLocation, setSelectedLocation] = useState('Seoul');
+  const [favorites, setFavorites] = useState(['Beijing', 'Seoul', 'Osaka', 'Tokyo', 'Shanghai', 'Chongqing', 'Guangzhou']);
   const [activeTab, setActiveTab] = useState<'locations' | 'find-location'>('locations');
   const [selectedMetric, setSelectedMetric] = useState('wind');
   
@@ -93,7 +96,7 @@ export function Demo() {
             {activeTab === 'locations' ? (
               <>
                 {/* Active Alerts */}
-                <AlertsBanner />
+                <AlertsBanner selectedLocation={selectedLocation} />
 
                 {/* Meteorologist Forecast Discussion */}
                 <MeteorologistDiscussion selectedLocation={selectedLocation} />

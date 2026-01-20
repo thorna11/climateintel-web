@@ -4,7 +4,7 @@ import { Header } from '@/app/components/Header';
 import { Home } from '@/app/pages/Home';
 import { Products } from '@/app/pages/Products';
 import { ProductDetail } from '@/app/pages/ProductDetail';
-import { Demo } from '@/app/pages/Demo';
+import Demo from '@/app/pages/Demo';
 import { Methodology } from '@/app/pages/Methodology';
 import { About } from '@/app/pages/About';
 
