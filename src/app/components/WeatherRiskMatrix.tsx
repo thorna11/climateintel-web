@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronRight, AlertTriangle, MapPin } from 'lucide-react';
+import { ChevronDown, ChevronRight, AlertTriangle, MapPin, ArrowUp, ArrowDown, ArrowRight } from 'lucide-react';
 
 type RiskLevel = 'low' | 'medium' | 'high';
 type Uncertainty = 'Low' | 'Med' | 'High';
+type Direction = 'up' | 'down' | 'neutral' | null;
 
 interface RiskCell {
   probability: number;
   uncertainty: Uncertainty;
   models: string[];
+  direction?: Direction;
 }
 
 interface RiskRow {
@@ -30,6 +32,7 @@ const generateMockData = (): RiskCell[] => {
       probability: Math.round(baseProb),
       uncertainty: baseProb > 70 ? 'High' : baseProb > 40 ? 'Med' : 'Low' as Uncertainty,
       models: ['ECMWF', 'GFS', 'NBM'],
+      direction: Math.random() > 0.5 ? 'up' : Math.random() > 0.5 ? 'down' : 'neutral',
     };
   });
 };

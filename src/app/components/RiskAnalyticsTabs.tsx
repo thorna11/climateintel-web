@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend, ReferenceLine } from 'recharts';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { TrendingUp, TrendingDown, Thermometer, GitBranch, Wind, Sun } from 'lucide-react';
 import { DivergenceLoadImpact } from './DivergenceLoadImpact';
 
 const degreeDayData24h = [
@@ -60,9 +60,24 @@ export function RiskAnalyticsTabs({ selectedLocation = 'Global' }: RiskAnalytics
   });
 
   const tabs = [
-    { id: 'degree-day' as TabId, label: 'Degree-Day Risk' },
-    { id: 'model-divergence' as TabId, label: 'Model Divergence' },
-    { id: 'wind-solar' as TabId, label: 'Wind & Solar Uncertainty' },
+    { 
+      id: 'degree-day' as TabId, 
+      label: 'Degree-Day Risk',
+      icon: Thermometer,
+      subtitle: 'HDD/CDD vs normal + distribution'
+    },
+    { 
+      id: 'model-divergence' as TabId, 
+      label: 'Model Divergence',
+      icon: GitBranch,
+      subtitle: 'Observed vs models — past/present/forecast'
+    },
+    { 
+      id: 'wind-solar' as TabId, 
+      label: 'Wind & Solar Uncertainty',
+      icon: Wind,
+      subtitle: 'Ramp risk + irradiance volatility'
+    },
   ];
 
   // Metric configuration
@@ -169,21 +184,46 @@ export function RiskAnalyticsTabs({ selectedLocation = 'Global' }: RiskAnalytics
 
   return (
     <div className="bg-card border border-neutral-border rounded-lg overflow-hidden">
-      {/* Tab Headers */}
-      <div className="flex border-b border-neutral-border bg-neutral-bg">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex-1 px-4 py-3 text-sm font-medium transition-all ${
-              activeTab === tab.id
-                ? 'text-primary border-b-2 border-primary bg-card'
-                : 'text-muted-foreground hover:text-foreground hover:bg-accent'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      {/* Prominent Segmented Control Tab Headers */}
+      <div className="bg-neutral-bg border-b border-neutral-border p-4">
+        <div className="flex gap-2 bg-secondary rounded-lg p-1">
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer group relative ${
+                  isActive
+                    ? 'bg-primary/10 text-primary border-2 border-primary shadow-sm'
+                    : 'bg-transparent text-muted-foreground border-2 border-transparent hover:bg-accent hover:text-foreground'
+                }`}
+              >
+                {/* Left accent bar for active tab */}
+                {isActive && (
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r"></div>
+                )}
+                
+                <Icon className={`w-4 h-4 transition-transform ${isActive ? 'scale-110' : 'group-hover:scale-105'}`} />
+                <span className={isActive ? 'font-semibold' : ''}>{tab.label}</span>
+                
+                {/* Bottom indicator for active tab */}
+                {isActive && (
+                  <div className="absolute bottom-0 left-4 right-4 h-1 bg-primary rounded-t"></div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        
+        {/* Micro-subtitle under active tab */}
+        <div className="mt-3 px-2">
+          <p className="text-xs text-muted-foreground italic">
+            {tabs.find(t => t.id === activeTab)?.subtitle}
+          </p>
+        </div>
       </div>
 
       {/* Tab Content */}
