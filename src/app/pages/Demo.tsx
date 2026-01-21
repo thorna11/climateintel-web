@@ -175,3 +175,5 @@ export function Demo() {
     </PageContainer>
   );
 }
+
+export default Demo;
